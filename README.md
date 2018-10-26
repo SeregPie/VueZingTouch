@@ -83,3 +83,18 @@ export default {
 };
 </script>
 ```
+
+---
+
+Override default options.
+
+```html
+<div
+  v-zing-touch:tap="{
+    maxDelay: 200,
+    numInputs: 2,
+    tolerance: 125,
+    handler: onTap,
+  }"
+><!--...--></div>
+```
