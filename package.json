@@ -1,6 +1,6 @@
 {
 	"name": "vuezingtouch",
-	"version": "18.10.26",
+	"version": "18.10.27",
 	"description": "A wrapper for ZingTouch.",
 	"keywords": [
 		"directive",
