@@ -10,10 +10,6 @@ let ztRegion;
 export default {
 	name: 'ZingTouch',
 
-	install(Vue) {
-		Vue.directive(this.name, this);
-	},
-
 	bind(el, {value, arg}) {
 		if (!ztRegion) {
 			ztRegion = new ZingTouch.Region(document.body);
