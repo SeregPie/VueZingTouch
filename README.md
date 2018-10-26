@@ -98,3 +98,17 @@ Override default options.
   }"
 ><!--...--></div>
 ```
+
+---
+
+Define new gestures.
+
+```html
+<div
+  v-zing-touch:shortTap="{
+    extends: 'tap',
+    maxDelay: 60,
+    handler: onShortTap,
+  }"
+><!--...--></div>
+```
