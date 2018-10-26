@@ -1,6 +1,7 @@
 import ZingTouch from 'zingtouch';
 
 //import Function_isFunction from '/utils/Function/isFunction';
+//import Object_isObject from '/utils/Object/isObject';
 
 let ztRegion;
 
@@ -11,10 +12,6 @@ export default {
 		Vue.directive(this.name, this);
 	},
 
-	//deep: true,
-
-	//acceptStatement: true,
-
 	bind(el, {value, arg}) {
 		if (arg) {
 			if (!ztRegion) {
@@ -22,8 +19,8 @@ export default {
 			}
 			let ztObject = ztRegion.bind(el);
 			if (ztObject[arg]) {
-				ztObject[arg](({detail: {data, events}}) => {
-					value(data, ...events);
+				ztObject[arg](event => {
+					value(event);
 				});
 			}
 		}

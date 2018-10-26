@@ -71,11 +71,11 @@ export default {
     pageIndex: 0,
   },
   methods: {
-    onSwipe([{currentDirection}]) {
-      if (currentDirection === 180) {
+    onSwipe(event) {
+      if (event.detail[0].currentDirection === 180) {
         this.pageIndex++;   
       } else
-      if (currentDirection === 360) {
+      if (event.detail[0].currentDirection === 360) {
         this.pageIndex--;
       }
     },
