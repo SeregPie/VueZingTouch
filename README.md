@@ -110,5 +110,10 @@ Define new gestures.
     maxDelay: 60,
     handler: onShortTap,
   }"
+  v-zing-touch:longTap="{
+    type: 'tap',
+    minDelay: 300,
+    handler: onLongTap,
+  }"
 ><!--...--></div>
 ```
