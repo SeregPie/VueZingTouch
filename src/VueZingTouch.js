@@ -24,7 +24,7 @@ let VueZingTouch = {
 		if (value) {
 			options = value;
 			handler = options.handler || Function_noop;
-			gesture = options.extends || arg;
+			gesture = options.type || arg;
 		}
 		let ztGesture = (() => {
 			switch (gesture) {

@@ -106,7 +106,7 @@ Define new gestures.
 ```html
 <div
   v-zing-touch:shortTap="{
-    extends: 'tap',
+    type: 'tap',
     maxDelay: 60,
     handler: onShortTap,
   }"
