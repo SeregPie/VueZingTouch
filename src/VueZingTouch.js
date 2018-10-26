@@ -14,20 +14,21 @@ let VueZingTouch = {
 		if (!ztRegion) {
 			ztRegion = new ZingTouch.Region(document.body);
 		}
-		let gesture;
+		let type;
 		let handler;
 		let options;
 		if (Function_isFunction(value)) {
 			handler = value;
-			gesture = arg;
-		} else
-		if (value) {
-			options = value;
-			handler = options.handler || Function_noop;
-			gesture = options.type || arg;
+			type = arg;
+		} else {
+			({
+				handler = Function_noop,
+				type = arg,
+				...options
+			} = value);
 		}
 		let ztGesture = (() => {
-			switch (gesture) {
+			switch (type) {
 				case 'pan': return new ZingTouch.Pan(options);
 				case 'rotate': return new ZingTouch.Rotate(options);
 				case 'distance': return new ZingTouch.Distance(options);
