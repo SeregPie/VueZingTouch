@@ -7,7 +7,7 @@ import Function_noop from '/utils/Function/noop';
 let ztGestures = new DeepMap();
 let ztRegion;
 
-export default {
+let VueZingTouch = {
 	name: 'ZingTouch',
 
 	bind(el, {value, arg}) {
@@ -41,6 +41,13 @@ export default {
 		}
 	},
 
+	update(el, {value, oldValue, arg}) {
+		if (value !== oldValue) {
+			VueZingTouch.unbind(el, {arg});
+			VueZingTouch.bind(el, {value, arg});
+		}
+	},
+
 	unbind(el, {arg}) {
 		let ztGesture = ztGestures.delete(el, arg);
 		if (ztGesture) {
@@ -48,3 +55,5 @@ export default {
 		}
 	},
 };
+
+export default VueZingTouch;
