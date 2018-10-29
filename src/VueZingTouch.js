@@ -10,13 +10,16 @@ let ztRegion;
 let VueZingTouch = {
 	name: 'ZingTouch',
 
-	bind(el, {value, arg}) {
+	bind(el, {
+		arg,
+		value,
+	}) {
 		if (!ztRegion) {
 			ztRegion = new ZingTouch.Region(document.body);
 		}
-		let type;
 		let handler;
 		let options;
+		let type;
 		if (Function_isFunction(value)) {
 			handler = value;
 			type = arg;
@@ -29,9 +32,9 @@ let VueZingTouch = {
 		}
 		let ztGesture = (() => {
 			switch (type) {
+				case 'distance': return new ZingTouch.Distance(options);
 				case 'pan': return new ZingTouch.Pan(options);
 				case 'rotate': return new ZingTouch.Rotate(options);
-				case 'distance': return new ZingTouch.Distance(options);
 				case 'swipe': return new ZingTouch.Swipe(options);
 				case 'tap': return new ZingTouch.Tap(options);
 			}
@@ -42,10 +45,17 @@ let VueZingTouch = {
 		}
 	},
 
-	update(el, {value, oldValue, arg}) {
+	update(el, {
+		arg,
+		oldValue,
+		value,
+	}) {
 		if (value !== oldValue) {
 			VueZingTouch.unbind(el, {arg});
-			VueZingTouch.bind(el, {value, arg});
+			VueZingTouch.bind(el, {
+				arg,
+				value,
+			});
 		}
 	},
 
